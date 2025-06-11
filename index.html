@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mariam Kamungu - Interactive CV</title>
+    <!-- Tailwind CSS CDN for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts - Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Base styles */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc; /* Light Slate 50 */
+            color: #334155; /* Slate 700 */
+        }
+        /* Custom styles for interactive sections */
+        .collapsible-header {
+            cursor: pointer;
+            position: relative;
+            padding-right: 2rem; /* Space for arrow */
+        }
+        .collapsible-header::after {
+            content: '+';
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            transition: transform 0.3s ease-in-out;
+            font-size: 1.5rem;
+            line-height: 1;
+            color: #0d9488; /* Teal 600 */
+        }
+        .collapsible-header.open::after {
+            content: '-';
+            transform: translateY(-50%) rotate(0deg); /* No rotation for minus sign */
+        }
+        .collapsible-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out;
+            opacity: 0;
+            padding-top: 0;
+        }
+        .collapsible-content.open {
+            max-height: 1000px; /* Arbitrary large value */
+            opacity: 1;
+            padding-top: 1rem;
+        }
+        /* Navbar link hover effect */
+        .nav-link {
+            transition: color 0.3s ease;
+        }
+        .nav-link:hover {
+            color: #0d9488; /* Teal 600 */
+        }
+        /* Horizontal rule styling */
+        hr {
+            border: none;
+            border-top: 2px solid #e2e8f0; /* Slate 200 */
+            margin: 2rem auto;
+            max-width: 80%;
+        }
+    </style>
+</head>
+<body class="text-slate-700">
+
+    <!-- Header Navigation -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="text-2xl font-bold text-slate-800 rounded-md p-2">
+                Mariam Kamungu
+            </div>
+            <div class="hidden md:flex space-x-6">
+                <a href="#summary" class="nav-link font-medium text-slate-700 hover:text-teal-600 px-3 py-2 rounded-md transition-colors duration-300">Summary</a>
+                <a href="#expertise" class="nav-link font-medium text-slate-700 hover:text-teal-600 px-3 py-2 rounded-md transition-colors duration-300">Expertise</a>
+                <a href="#experience" class="nav-link font-medium text-slate-700 hover:text-teal-600 px-3 py-2 rounded-md transition-colors duration-300">Experience</a>
+                <a href="#education" class="nav-link font-medium text-slate-700 hover:text-teal-600 px-3 py-2 rounded-md transition-colors duration-300">Education</a>
+                <a href="#skills" class="nav-link font-medium text-slate-700 hover:text-teal-600 px-3 py-2 rounded-md transition-colors duration-300">Tech Skills</a>
+            </div>
+            <!-- Mobile Menu Button -->
+            <div class="md:hidden">
+                <button id="menu-btn" class="text-slate-800 focus:outline-none p-2 rounded-md hover:bg-slate-100 transition-colors duration-300">
+                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+        </nav>
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg py-2">
+            <a href="#summary" class="block py-2 px-4 text-sm text-slate-700 hover:bg-slate-100 transition-colors duration-300">Summary</a>
+            <a href="#expertise" class="block py-2 px-4 text-sm text-slate-700 hover:bg-slate-100 transition-colors duration-300">Expertise</a>
+            <a href="#experience" class="block py-2 px-4 text-sm text-slate-700 hover:bg-slate-100 transition-colors duration-300">Experience</a>
+            <a href="#education" class="block py-2 px-4 text-sm text-slate-700 hover:bg-slate-100 transition-colors duration-300">Education</a>
+            <a href="#skills" class="block py-2 px-4 text-sm text-slate-700 hover:bg-slate-100 transition-colors duration-300">Tech Skills</a>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-8">
+
+        <!-- Hero / Contact Info Section -->
+        <section id="summary" class="bg-white rounded-xl shadow-lg p-8 md:p-12 mb-8">
+            <div class="text-center">
+                <h1 class="text-4xl md:text-5xl font-extrabold text-slate-800 mb-4">Mariam Kamungu</h1>
+                <p class="text-lg md:text-xl text-teal-600 font-semibold mb-6">Senior Administrative, Operations & Executive Support Professional</p>
+                <div class="flex flex-wrap justify-center gap-x-6 gap-y-2 text-slate-600 text-md md:text-lg mb-8">
+                    <span>Mobile: +447508506696</span>
+                    <span>Email: mariam.kamungu@gmail.com</span>
+                    <span><a href="https://msnova360.github.io/mariam-k-cv/" target="_blank" class="text-teal-600 hover:underline">Portfolio Link</a></span>
+                </div>
+                <p class="max-w-4xl mx-auto text-slate-700 leading-relaxed text-base md:text-lg">
+                    Highly experienced and results-driven Senior Administrative Professional with a proven track record in managing operations, facilities, and providing executive support. Adept at streamlining processes, enhancing compliance, and cultivating strong stakeholder relationships across diverse industries, including infrastructure and private healthcare. Skilled in providing exceptional administrative support to cross-functional teams, ensuring smooth operations and high staff morale. Seeking a challenging administrative, Executive Assistant, PA/EA, Document Controller, or Assistant Project Coordinator/Administrator role where a broad range of competencies can drive organizational efficiency.
+                </p>
+            </div>
+        </section>
+
+        <hr>
+
+        <!-- Areas of Expertise Section -->
+        <section id="expertise" class="py-8">
+            <h2 class="text-3xl font-bold text-center text-slate-800 mb-10">Areas of Expertise</h2>
+            <div class="bg-white rounded-xl shadow-lg p-8 md:p-10 max-w-4xl mx-auto">
+                <ul class="text-slate-700 text-base md:text-lg leading-relaxed space-y-4">
+                    <li><span class="font-semibold text-teal-700">Executive & Administrative Support:</span> Complex Calendar Management & Scheduling, Global Travel Coordination & Itinerary Planning, Expense Reporting & Purchase Orders, Executive Support, Document Control, Data Entry & Management, Office Supply Management, Confidential Information Handling, Personnel Records Management, Benefits & Entitlements Support.</li>
+                    <li><span class="font-semibold text-teal-700">Training & Development Programs:</span> Program Formulation & Coordination, Induction & Orientation Planning, Career Development Plan Support.</li>
+                    <li><span class="font-semibold text-teal-700">Public Relations & Event Coordination:</span> Security Pass & Visa Coordination, Delegation Logistics, Conference Management.</li>
+                    <li><span class="font-semibold text-teal-700">Operations & Facilities Management:</span> Facilities Management & Maintenance, Vendor & Contractor Management, Procurement & Logistics, Health & Safety Administration, Risk Management, Switchboard Operations, IT Support & Maintenance Coordination, Office & General Services Procurement.</li>
+                    <li><span class="font-semibold text-teal-700">Project & Event Coordination:</span> Project Administration & Support, Team Event & Offsite Coordination, All-Hands Meetings Logistics, Stakeholder Communication & Management.</li>
+                    <li><span class="font-semibold text-teal-700">Financial Administration:</span> Invoicing & Billing, Petty Cash Management, Expense Tracking, Debt Collection, Insurance Liaison.</li>
+                    <li><span class="font-semibold text-teal-700">Healthcare Administration:</span> Medical Terminology & Procedures, Patient Relations, Medical Transcription, Operating Room Coordination.</li>
+                </ul>
+            </div>
+        </section>
+
+        <hr>
+
+        <!-- Professional Experience Section -->
+        <section id="experience" class="py-8">
+            <h2 class="text-3xl font-bold text-center text-slate-800 mb-10">Professional Experience</h2>
+            <div class="bg-white rounded-xl shadow-lg p-8 md:p-10 max-w-4xl mx-auto space-y-8">
+
+                <!-- Job 1: Project Administrator -->
+                <div class="border-b border-slate-200 pb-8 last:border-b-0 last:pb-0">
+                    <div class="collapsible-header text-xl font-bold text-slate-800 hover:text-teal-600 transition-colors duration-300">
+                        Project Administrator | COWI UK Ltd | August 2023 – Present
+                    </div>
+                    <div class="collapsible-content">
+                        <ul class="list-disc pl-6 text-slate-700 space-y-2 pt-2">
+                            <li>Provided comprehensive project administration and document control for major infrastructure projects including **HS2, Silvertown Tunnel, and Sizewell C (SZC)**, monitoring progress and ensuring compliance using systems like Asite and AssetWise.</li>
+                            <li>Managed logistics for engineers' site visits (Network Rail, CSCS, Confined Space) and tracked project invoice payments.</li>
+                            <li>Issued and distributed external documents, ensuring effective stakeholder communication and timely decision-making.</li>
+                            <li>Proactively supported project delivery across all phases and managed weekly timesheet reporting.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Job 2: Facilities Coordinator -->
+                <div class="border-b border-slate-200 pb-8 last:border-b-0 last:pb-0">
+                    <div class="collapsible-header text-xl font-bold text-slate-800 hover:text-teal-600 transition-colors duration-300">
+                        Facilities Coordinator (With Line Management Responsibility) | COWI UK Ltd | April 2022 – July 2023
+                    </div>
+                    <div class="collapsible-content">
+                        <ul class="list-disc pl-6 text-slate-700 space-y-2 pt-2">
+                            <li>Spearheaded maintenance of a high-quality office environment, streamlining RAMS processes and enhancing safety standards.</li>
+                            <li>Managed external vendors for cost-effective service delivery and ensured health and safety compliance across multi-site offices.</li>
+                            <li>Executed seamless onboarding/offboarding tasks, collaborating with IT/HR, and managed switchboard/visitor operations.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Job 3: Operations Team Lead -->
+                <div class="border-b border-slate-200 pb-8 last:border-b-0 last:pb-0">
+                    <div class="collapsible-header text-xl font-bold text-slate-800 hover:text-teal-600 transition-colors duration-300">
+                        Operations Team Lead | COWI UK Ltd | Feb 2021 – Mar 2022
+                    </div>
+                    <div class="collapsible-content">
+                        <ul class="list-disc pl-6 text-slate-700 space-y-2 pt-2">
+                            <li>Ensured efficient office operations and compliance with Integrated Management System (IMS).</li>
+                            <li>Cultivated strong relationships with vendors and building management for timely invoicing and payments.</li>
+                            <li>Provided comprehensive training on PC packages to team members, increasing efficiency and productivity.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Job 4: Administration Manager -->
+                <div class="border-b border-slate-200 pb-8 last:border-b-0 last:pb-0">
+                    <div class="collapsible-header text-xl font-bold text-slate-800 hover:text-teal-600 transition-colors duration-300">
+                        Administration Manager | COWI UK Ltd | Oct 2018 – Feb 2021
+                    </div>
+                    <div class="collapsible-content">
+                        <ul class="list-disc pl-6 text-slate-700 space-y-2 pt-2">
+                            <li>Conducted comprehensive new hire orientations and provided essential health and safety information for a secure workplace.</li>
+                            <li>Managed all office financial administration, processing an average of 10-15 invoices and expense reports weekly.</li>
+                            <li>Coordinated complex global travel and accommodation logistics for numerous employees across 2 offices.</li>
+                            <li>Organized successful office social events, significantly enhancing staff morale and engagement.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Job 5: Practice Manager / PA/EA -->
+                <div class="border-b border-slate-200 pb-8 last:border-b-0 last:pb-0">
+                    <div class="collapsible-header text-xl font-bold text-slate-800 hover:text-teal-600 transition-colors duration-300">
+                        Practice Manager / Personal & Executive Assistant (PA/EA) | The London Clinic, London, UK | January 2007 – April 2011
+                    </div>
+                    <div class="collapsible-content">
+                        <ul class="list-disc pl-6 text-slate-700 space-y-2 pt-2">
+                            <li>Spearheaded comprehensive operations of a private ophthalmology practice as the sole employee supporting two ophthalmologists.</li>
+                            <li>Provided full administrative, PA, and EA support, including meticulous file management, travel arrangements, and sensitive medical history tracking.</li>
+                            <li>Transcribed dictated letters from surgeons, compiled medical charts, and managed patient interactions, including appointments and billing.</li>
+                            <li>Coordinated and booked operating rooms and patient appointments with external clinics.</li>
+                            <li>Managed financial administration (invoicing, debt collection, petty cash) and liaised extensively with insurance companies on billing/claims.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Other Relevant Experience -->
+                <div class="border-b border-slate-200 pb-8 last:border-b-0 last:pb-0">
+                    <div class="collapsible-header text-xl font-bold text-slate-800 hover:text-teal-600 transition-colors duration-300">
+                        Other Relevant Experience | 2011 - 2018
+                    </div>
+                    <div class="collapsible-content">
+                        <ul class="list-disc pl-6 text-slate-700 space-y-2 pt-2">
+                            <li>Corporate Receptionist/Admin Assistant | Portico | March 2016 - October 2018</li>
+                            <li>Administration Support (Temporary Assignments) | Various Recruitment Agencies | February 2014 - March 2016
+                                <ul class="list-disc pl-6 mt-1">
+                                    <li>Includes experience as Health and Safety Administrator at Ballymore Group</li>
+                                </ul>
+                            </li>
+                            <li>HR Administrator (Contract) | Creative Eye - Dar es Salaam, Tanzania | October 2011 - February 2013</li>
+                            <li>Onshore Administrator (Tanzania) Contract | Polaris Seismic International Limited | September 2013 - December 2013</li>
+                            <li>Junior Client Account Executive (Contract) | Hourglass Tanzania Ltd - Dar es Salaam, Tanzania | May 2011 - September 2011</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <hr>
+
+        <!-- Education & Certificates Section -->
+        <section id="education" class="py-8">
+            <h2 class="text-3xl font-bold text-center text-slate-800 mb-10">Education & Certificates</h2>
+            <div class="bg-white rounded-xl shadow-lg p-8 md:p-10 max-w-2xl mx-auto text-center">
+                <p class="text-lg font-semibold text-slate-800 mb-3">Level 6 Diploma in Business Administration</p>
+                <p class="text-slate-600 mb-6">Cambridge Management & Leadership School – In progress</p>
+                <div class="flex flex-wrap justify-center gap-x-6 gap-y-2 text-md font-medium text-teal-700">
+                    <span>First Aid at Work Qualification</span>
+                    <span>•</span>
+                    <span>Fire Marshal</span>
+                    <span>•</span>
+                    <span>DSE Assessor</span>
+                </div>
+            </div>
+        </section>
+
+        <hr>
+
+        <!-- Technical Skills & Qualifications Section -->
+        <section id="skills" class="py-8">
+            <h2 class="text-3xl font-bold text-center text-slate-800 mb-10">Technical Skills & Qualifications</h2>
+            <div class="bg-white rounded-xl shadow-lg p-8 md:p-10 max-w-3xl mx-auto">
+                <ul class="list-disc pl-6 text-slate-700 text-base md:text-lg leading-relaxed space-y-3">
+                    <li><span class="font-semibold text-teal-700">Microsoft Office Suite:</span> Proficient in Word, Excel, PowerPoint, Outlook, SharePoint, MS Teams.</li>
+                    <li><span class="font-semibold text-teal-700">Business Systems:</span> SAP Concur, Asite, Assetwise.</li>
+                    <li><span class="font-semibold text-teal-700">IT Proficiency:</span> Advanced IT skills, highly experienced with internet and intranet systems.</li>
+                </ul>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-800 text-white py-8 text-center text-sm md:text-base rounded-t-xl mt-8">
+        <div class="container mx-auto px-4">
+            <p>&copy; 2025 Mariam Kamungu. All rights reserved. Interactive CV created by an AI assistant.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript for interactivity -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                    // Close mobile menu after clicking a link
+                    if (mobileMenu.classList.contains('flex')) { // Check if mobile menu is open
+                        mobileMenu.classList.add('hidden');
+                        mobileMenu.classList.remove('flex');
+                    }
+                });
+            });
+
+            // Mobile menu toggle
+            const menuBtn = document.getElementById('menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            menuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+                mobileMenu.classList.toggle('flex'); /* Use flex for display on mobile */
+            });
+
+            // Collapsible sections for experience details
+            const collapsibleHeaders = document.querySelectorAll('.collapsible-header');
+
+            collapsibleHeaders.forEach(header => {
+                header.addEventListener('click', () => {
+                    header.classList.toggle('open');
+                    const content = header.nextElementSibling; // The content div is the next sibling
+                    content.classList.toggle('open');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
